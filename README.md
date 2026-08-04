@@ -1,5 +1,18 @@
 # FingerprintsBuyback Contract
 
+## Development setup
+
+The scripts load credentials from the ignored `.env` file. The encrypted backup
+is `.env.enc` and stays in the repository.
+
+```nu
+^age --decrypt .env.enc | save --force .env
+^npm install
+^npx hardhat test
+```
+
+Never print decrypted secrets or commit `.env`.
+
 ## Overview
 The **FingerprintsBuyback** smart contract allows selected users to exchange ERC20 tokens or ERC721 NFTs for ETH, as part of a buyback program. The contract enforces specific rules for participation, including the use of allowlists and configurable exchange rates.
 
